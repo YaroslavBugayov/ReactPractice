@@ -1,0 +1,14 @@
+@use '../../styles/colors' as colors;
+
+header {
+  display: flex;
+  background-color: colors.$panels-background-color;
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+
+  .logo {
+    height: 36px;
+  }
+}

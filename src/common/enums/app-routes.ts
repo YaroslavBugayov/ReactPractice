@@ -1,4 +1,6 @@
 
 export enum AppRoutes {
-    HOME = '',
+    ROOT = '',
+    ANY = '*',
+    LEADS = '/leads'
 }

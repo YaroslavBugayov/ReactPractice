@@ -1,14 +1,16 @@
 import './App.scss'
 import { FC, JSX } from 'react';
-import { routerProvider } from '../../routes/router-provider.tsx';
+import Header from '../header/Header.tsx';
 import { RouterProvider } from 'react-router-dom';
+import { routerProvider } from '../../routes/router-provider.tsx';
 
 const App: FC = (): JSX.Element => {
 
   return (
-    <>
-        <RouterProvider router={routerProvider} />
-    </>
+      <>
+          <Header />
+          <RouterProvider router={routerProvider} />
+      </>
   )
 };
 
