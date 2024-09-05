@@ -5,6 +5,10 @@
   padding: 10px;
   min-width: 168px;
   border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .list-item_default {
@@ -12,7 +16,6 @@
   color: colors.$inactive-text;
 
   &:hover {
-    cursor: pointer;
     background-color: colors.$contrasted-white;
   }
 }
