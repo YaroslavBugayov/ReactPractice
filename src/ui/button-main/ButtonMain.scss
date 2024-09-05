@@ -1,2 +1,19 @@
 @use '../../styles/colors' as colors;
 
+button {
+  background-color: colors.$light-blue;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: colors.$white;
+  border: none;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: colors.$blue;
+  }
+
+  &:focus {
+    background-color: colors.$dark-blue;
+  }
+}

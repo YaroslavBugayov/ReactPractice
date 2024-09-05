@@ -1,0 +1,79 @@
+@use '../../styles/colors' as colors;
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+
+  .table-head {
+    display: grid;
+    grid-template-columns: 26fr 9fr 15fr 15fr 20fr 20fr 15fr;
+    background-color: colors.$light-blue;
+
+    .table-head_item {
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: colors.$white;
+    }
+  }
+
+  .table-body {
+    background-color: colors.$white;
+
+    .table-body_row {
+      display: grid;
+      grid-template-columns: 26fr 9fr 15fr 15fr 20fr 20fr 15fr;
+
+      .table-body_item {
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .button-delete a:hover {
+        cursor: pointer;
+        color: colors.$blue;
+      }
+    }
+
+    .table-body_row:nth-child(even) {
+      background-color: colors.$contrasted-white;
+    }
+  }
+}
+
+
+//table {
+//  background-color: white;
+//  border-collapse: collapse;
+//  overflow: hidden;
+//  border-radius: 10px;
+//  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+//  table-layout: auto;
+//
+//  thead {
+//    background-color: colors.$light-blue;
+//    color: colors.$white;
+//
+//    tr:nth-child(1) {
+//      width: 50%;
+//    }
+//
+//    th {
+//      text-align: left;
+//      padding: 10px;
+//    }
+//  }
+//
+//  tbody {
+//
+//    tr:nth-child(even) {
+//      background-color: colors.$contrasted-white;
+//    }
+//
+//    td {
+//      padding: 10px;
+//    }
+//  }
+//}

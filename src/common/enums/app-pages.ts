@@ -1,6 +1,8 @@
-import { AppRoutes } from './app-routes.ts';
+import AppRoutes from './app-routes.ts';
 
-export enum AppPages {
+enum AppPages {
     MAIN = AppRoutes.ROOT,
     LEADS = AppRoutes.LEADS
 }
+
+export default AppPages;

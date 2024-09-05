@@ -1,11 +1,14 @@
+import './ButtonMain.scss';
 import { FC, JSX } from 'react';
 
-const ButtonMain: FC = (): JSX.Element => {
+interface ButtonMainProps {
+    children?: JSX.Element;
+}
+
+const ButtonMain: FC = ({ children = null }: ButtonMainProps): JSX.Element => {
 
     return (
-        <button>
-            
-        </button>
+        <button>{children}</button>
     )
 };
 

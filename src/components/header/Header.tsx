@@ -1,5 +1,5 @@
 import './Header.scss';
-import { FC, JSX } from 'react';
+import { FC, JSX, useEffect } from 'react';
 import logo from '../../assets/logo.svg';
 
 const Header: FC = (): JSX.Element => {

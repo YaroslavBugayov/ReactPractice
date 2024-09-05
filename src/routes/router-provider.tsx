@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import { AppRoutes } from '../common/enums/app-routes.ts';
+import AppRoutes from '../common/enums/app-routes.ts';
 import Main from '../components/main/Main.tsx';
 import MainPage from '../components/main-page/MainPage.tsx';
 import Leads from '../components/leads/Leads.tsx';
