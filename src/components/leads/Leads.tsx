@@ -14,8 +14,8 @@ const Leads: FC = (): JSX.Element => {
         setIsModalOpen(true);
     };
 
-    const handleCloseModal = (e: MouseEvent<HTMLElement>) => {
-        if (e.target === e.currentTarget) {
+    const handleCloseModal = (e: MouseEvent<HTMLElement> | KeyboardEvent) => {
+        if (e?.target === e?.currentTarget) {
             setIsModalOpen(false);
         }
     };

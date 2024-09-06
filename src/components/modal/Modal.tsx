@@ -1,5 +1,5 @@
 import './Modal.scss';
-import { FC, JSX } from 'react';
+import { FC, JSX, useEffect } from 'react';
 import InputField from '../../ui/input-field/InputField.tsx';
 import ButtonMain from '../../ui/button-main/ButtonMain.tsx';
 import ButtonSecondary from '../../ui/button-secondary/ButtonSecondary.tsx';
@@ -36,6 +36,20 @@ interface ModalProps {
 const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<FormData>();
     const [createLead] = useCreateLeadMutation();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+            onClose();
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
     const onSubmit: SubmitHandler<FormData> = async data => {
         const lead: LeadCredentials = {
@@ -95,7 +109,7 @@ const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
                         />
                     </div>
                     <div className="footer">
-                        <ButtonSecondary onClick={onClose}>Відмінити</ButtonSecondary>
+                        <ButtonSecondary type="button" onClick={onClose}>Відмінити</ButtonSecondary>
                         <ButtonMain type="submit">Створити</ButtonMain>
                     </div>
                 </form>

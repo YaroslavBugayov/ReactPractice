@@ -1,15 +1,16 @@
 import './ButtonSecondary.scss';
 import { FC, JSX } from 'react';
 
-interface ButtonMainProps {
+interface ButtonSecondaryProps {
     children?: JSX.Element;
     onClick?: () => void;
+    type?: 'button' | 'reset';
 }
 
-const ButtonSecondary: FC = ({ children = null, onClick }: ButtonMainProps): JSX.Element => {
+const ButtonSecondary: FC = ({ children = null, onClick, type = "button" }: ButtonSecondaryProps): JSX.Element => {
 
     return (
-        <button onClick={onClick} className="button-secondary">{children}</button>
+        <button type={type} onClick={onClick} className="button-secondary">{children}</button>
     )
 };
 
