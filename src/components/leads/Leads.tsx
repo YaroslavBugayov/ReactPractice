@@ -10,8 +10,6 @@ const Leads: FC = (): JSX.Element => {
     const { data }: { data: LeadModel } = useGetLeadsQuery();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    console.log('Leads')
-
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
