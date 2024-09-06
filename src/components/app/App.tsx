@@ -1,6 +1,5 @@
 import './App.scss'
 import { FC, JSX, useEffect } from 'react';
-import Header from '../header/Header.tsx';
 import { RouterProvider } from 'react-router-dom';
 import { routerProvider } from '../../routes/router-provider.tsx';
 import { Provider } from 'react-redux';
@@ -10,7 +9,6 @@ const App: FC = (): JSX.Element => {
 
     return (
         <Provider store={store}>
-            <Header/>
             <RouterProvider router={routerProvider}/>
         </Provider>
     )

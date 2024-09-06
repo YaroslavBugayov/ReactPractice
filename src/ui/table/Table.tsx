@@ -7,13 +7,13 @@ interface TableProps {
     data: LeadModel[]
 }
 
-const dateOptions = {day: 'numeric', month: 'long', year: 'numeric'}
+const dateOptions = {day: 'numeric', month: 'long', year: 'numeric'};
 
 const formatDate = (date: string) => {
     return new Date(date)
         .toLocaleDateString('uk-UA', dateOptions)
         .replace('р.', 'року');
-}
+};
 
 const checkGender = (sex: 'male' | 'female') => {
     switch (sex) {
@@ -22,7 +22,7 @@ const checkGender = (sex: 'male' | 'female') => {
         case 'female':
             return 'Жіноча';
     }
-}
+};
 
 const Table: FC = ({data}: TableProps): JSX.Element => {
     const [deleteLead] = useDeleteLeadMutation();
@@ -78,13 +78,13 @@ const Table: FC = ({data}: TableProps): JSX.Element => {
         //             <td>{lead.age}</td>
         //             <td>{lead.sex}</td>
         //             <td>{lead.phone}</td>
-        //             <td>{lead.dataCreating}</td>
+        //             <td>{lead.createdAt}</td>
         //             <td>Видалити</td>
         //         </tr>
         //     ))}
         //     </tbody>
         // </table>
-    )
+    );
 };
 
 export default Table;

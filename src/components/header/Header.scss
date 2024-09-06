@@ -10,5 +10,9 @@ header {
 
   .logo {
     height: 36px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
