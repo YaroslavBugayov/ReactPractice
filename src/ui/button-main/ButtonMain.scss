@@ -1,6 +1,6 @@
 @use '../../styles/colors' as colors;
 
-button {
+.button-main {
   background-color: colors.$light-blue;
   padding: 8px;
   font-size: 12px;

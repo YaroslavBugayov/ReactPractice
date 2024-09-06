@@ -8,7 +8,7 @@ interface ButtonMainProps {
 const ButtonMain: FC = ({ children = null }: ButtonMainProps): JSX.Element => {
 
     return (
-        <button>{children}</button>
+        <button className="button-main">{children}</button>
     )
 };
 

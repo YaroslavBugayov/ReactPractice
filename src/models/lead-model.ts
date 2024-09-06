@@ -1,11 +1,11 @@
 interface LeadModel {
-    id?: number;
+    id: number;
     name: string;
     lastName: string;
     age: number;
     phone: string;
     sex: 'male' | 'female';
-    createdAt?: Date;
+    createdAt: Date;
 }
 
 export default LeadModel;
