@@ -3,12 +3,13 @@ import { FC, JSX } from 'react';
 
 interface ButtonMainProps {
     children?: JSX.Element;
+    onClick?: () => void;
 }
 
-const ButtonSecondary: FC = ({ children = null }: ButtonMainProps): JSX.Element => {
+const ButtonSecondary: FC = ({ children = null, onClick }: ButtonMainProps): JSX.Element => {
 
     return (
-        <button className="button-secondary">{children}</button>
+        <button onClick={onClick} className="button-secondary">{children}</button>
     )
 };
 
