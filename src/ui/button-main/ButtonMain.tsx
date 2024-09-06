@@ -4,13 +4,14 @@ import { FC, JSX } from 'react';
 interface ButtonMainProps {
     children?: JSX.Element;
     onClick?: () => void;
+    type?: 'button' | 'submit';
 }
 
-const ButtonMain: FC = ({ children = null, onClick }: ButtonMainProps): JSX.Element => {
+const ButtonMain: FC = ({ children = null, onClick, type = "button" }: ButtonMainProps): JSX.Element => {
 
     return (
-        <button onClick={onClick} className="button-main">{children}</button>
-    )
+        <button type={type} onClick={onClick} className="button-main">{children}</button>
+    );
 };
 
 export default ButtonMain;

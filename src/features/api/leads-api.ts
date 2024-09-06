@@ -1,6 +1,7 @@
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import LeadModel from '../../models/lead-model.ts';
 import { createApi } from '@reduxjs/toolkit/query/react';
+import LeadCredentials from '../../models/lead-credentials.ts';
 
 export const leadsApi = createApi({
     reducerPath: 'leads',
@@ -19,8 +20,16 @@ export const leadsApi = createApi({
                 method: 'DELETE'
             }),
             invalidatesTags: ['Lead']
+        }),
+        createLead: builder.mutation<LeadModel, LeadCredentials>({
+            query: (lead: LeadCredentials) => ({
+                url: '/',
+                method: 'POST',
+                body: lead,
+            }),
+            invalidatesTags: ['Lead']
         })
     })
 });
 
-export const { useGetLeadsQuery, useDeleteLeadMutation } = leadsApi;
+export const { useGetLeadsQuery, useDeleteLeadMutation, useCreateLeadMutation } = leadsApi;

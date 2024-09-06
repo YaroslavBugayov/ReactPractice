@@ -3,11 +3,14 @@ import { FC, JSX } from 'react';
 import InputField from '../../ui/input-field/InputField.tsx';
 import ButtonMain from '../../ui/button-main/ButtonMain.tsx';
 import ButtonSecondary from '../../ui/button-secondary/ButtonSecondary.tsx';
-import CustomSelect, { OptionType } from '../../ui/custom-select/CustomSelect.tsx';
 import closeIcon from '../../assets/close.svg'
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { calculateAge } from '../../utils/data-utils.ts';
+import { OptionsType } from '../../ui/custom-select/CustomSelect.tsx';
+import LeadCredentials from '../../models/lead-credentials.ts';
+import { useCreateLeadMutation } from '../../features/api/leads-api.ts';
 
-const sexOptions: OptionType[] = [
+const sexOptions: OptionsType[] = [
     {
         value: 'male',
         name: 'Чоловіча',
@@ -18,14 +21,35 @@ const sexOptions: OptionType[] = [
     }
 ];
 
+interface FormData {
+    name: string;
+    lastName: string;
+    birthDate: string;
+    phone: string;
+    sex: 'male' | 'female';
+}
+
 interface ModalProps {
     onClose: () => void;
 }
 
 const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
-    const { register, handleSubmit, watch, formState } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<FormData>();
+    const [createLead] = useCreateLeadMutation();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit: SubmitHandler<FormData> = async data => {
+        const lead: LeadCredentials = {
+            name: data.name,
+            lastName: data.lastName,
+            age: calculateAge(data.birthDate),
+            phone: data.phone,
+            sex: data.sex
+        };
+
+        const newLead = await createLead(lead).unwrap();
+        console.log(newLead);
+        reset();
+    };
 
     return (
         <div onClick={onClose} className="modal">
@@ -72,7 +96,7 @@ const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
                     </div>
                     <div className="footer">
                         <ButtonSecondary onClick={onClose}>Відмінити</ButtonSecondary>
-                        <ButtonMain>Створити</ButtonMain>
+                        <ButtonMain type="submit">Створити</ButtonMain>
                     </div>
                 </form>
             </div>
