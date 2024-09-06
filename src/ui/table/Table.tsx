@@ -1,9 +1,17 @@
 import './Table.scss';
-import { FC, JSX } from 'react';
+import { FC, JSX, useEffect } from 'react';
 import LeadModel from '../../models/lead-model.ts';
 
 interface TableProps {
     data: LeadModel[]
+}
+
+const dateOptions = { day: 'numeric', month: 'long', year: 'numeric' }
+
+const formatDate = (date: string) => {
+    return new Date(date)
+        .toLocaleDateString("uk-UA", dateOptions)
+        .replace('р.', "року");
 }
 
 const Table: FC = ({ data }: TableProps): JSX.Element => {
@@ -27,7 +35,7 @@ const Table: FC = ({ data }: TableProps): JSX.Element => {
                         <div className="table-body_item">{lead.age}</div>
                         <div className="table-body_item">{lead.sex}</div>
                         <div className="table-body_item">{lead.phone}</div>
-                        <div className="table-body_item">{lead.dataCreating}</div>
+                        <div className="table-body_item">{formatDate(lead?.createdAt)}</div>
                         <div className="table-body_item button-delete"><a>Видалити</a></div>
                     </div>
                 ))}
