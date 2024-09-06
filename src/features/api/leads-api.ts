@@ -7,11 +7,20 @@ export const leadsApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://66d058f0181d059277de33d5.mockapi.io/leads'
     }),
+    tagTypes: ['Lead'],
     endpoints: (builder) => ({
         getLeads: builder.query<LeadModel[], void>({
             query: () => '/',
+            providesTags: ['Lead']
         }),
+        deleteLead: builder.mutation<void, number>({
+            query: (id: number) => ({
+                url: `/${id}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: ['Lead']
+        })
     })
 });
 
-export const { useGetLeadsQuery } = leadsApi;
+export const { useGetLeadsQuery, useDeleteLeadMutation } = leadsApi;
