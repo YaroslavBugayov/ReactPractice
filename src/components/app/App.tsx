@@ -11,7 +11,7 @@ const App: FC = (): JSX.Element => {
         <Provider store={store}>
             <RouterProvider router={routerProvider}/>
         </Provider>
-    )
+    );
 };
 
 export default App;
