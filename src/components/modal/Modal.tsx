@@ -76,18 +76,21 @@ const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
                     <div className="form-inputs">
                         <InputField
                             register={register}
+                            errors={errors}
                             label="Прізвище:"
                             placeholder="Введіть прізвище"
                             name="lastName"
                         />
                         <InputField
                             register={register}
+                            errors={errors}
                             label="Ім'я:"
                             placeholder="Введіть ім'я"
                             name="name"
                         />
                         <InputField
                             register={register}
+                            errors={errors}
                             label="Дата народження:"
                             placeholder="Виберіть дату народження"
                             name="birthDate"
@@ -95,6 +98,7 @@ const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
                         />
                         <InputField
                             register={register}
+                            errors={errors}
                             label="Стать:"
                             placeholder="Виберіть стать"
                             name="sex"
@@ -103,6 +107,7 @@ const Modal: FC = ({ onClose }: ModalProps): JSX.Element => {
                         />
                         <InputField
                             register={register}
+                            errors={errors}
                             label="Номер телефону:"
                             placeholder="Введіть номер телефону"
                             name="phone"

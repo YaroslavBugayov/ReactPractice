@@ -6,10 +6,11 @@ interface CustomInputProps {
     name: string;
     placeholder: string;
     register: UseFormRegister<{name: string}>;
+    errors: object;
     validateOptions: object;
 }
 
-const CustomDate: FC = ({name, placeholder, register, validateOptions}: CustomInputProps): JSX.Element => {
+const CustomDate: FC = ({name, placeholder, register, errors, validateOptions}: CustomInputProps): JSX.Element => {
     const [type, setType] = useState<'text' | 'date'>('text');
 
     const handleFocus = (): void => setType('date');
@@ -17,8 +18,8 @@ const CustomDate: FC = ({name, placeholder, register, validateOptions}: CustomIn
 
     return (
         <input
-            {...register(name, { required: true, ...validateOptions })}
-            className="custom-date"
+            {...register(name, { required: `Field ${name} is required`, ...validateOptions })}
+            className={`custom-date ${errors?.[name] !== undefined ? 'input-error' : ''}`}
             placeholder={placeholder}
             type={type}
             onFocus={handleFocus}

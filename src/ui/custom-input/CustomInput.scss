@@ -8,4 +8,8 @@
   &::placeholder {
     color: colors.$placeholder-color;
   }
+
+  &.input-error {
+    border-color: red;
+  }
 }

@@ -9,15 +9,19 @@ interface CustomSelectProps {
     placeholder: string;
     register: UseFormRegister<{name: string}>;
     validateOptions: object;
+    errors: object;
     selectOptions: OptionsType[];
 }
 
-const CustomSelect: FC = ({ name, placeholder, register, validateOptions, selectOptions}: CustomSelectProps): JSX.Element => {
+const CustomSelect: FC = ({ name, placeholder, register, errors, validateOptions, selectOptions}: CustomSelectProps): JSX.Element => {
 
     return (
-        <select {...register(name)} required className="custom-select" name={name}>
+        <select
+            {...register(name, { required: `Field ${name} is required`, ...validateOptions })}
+            className={`custom-select ${errors?.[name] !== undefined ? 'input-error' : ''}`}
+        >
             <option value="" className="placeholder" defaultValue hidden>{placeholder}</option>
-            {selectOptions?.map((option: OptionType, index: number) => (
+            {selectOptions?.map((option: OptionsType, index: number) => (
                 <option key={index} value={option.value}>{option.name}</option>
             ))}
         </select>

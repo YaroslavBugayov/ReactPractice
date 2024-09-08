@@ -17,5 +17,9 @@
       color: black;
     }
   }
+
+  &.input-error {
+    border-color: red;
+  }
 }
 

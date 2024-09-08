@@ -17,16 +17,16 @@ interface InputFieldProps {
     selectOptions?: OptionsType[]
 }
 
-const InputField: FC = ({label, description, error, type="text", ...customAttributes}: InputFieldProps): JSX.Element => {
+const InputField: FC = ({label, description, errors, type="text", ...customAttributes}: InputFieldProps): JSX.Element => {
     return (
         <div className="input-field">
             <label>{label}</label>
             {type === "text"
-                ? <CustomInput {...customAttributes} />
+                ? <CustomInput {...customAttributes} errors={errors} />
                 : type === 'select'
-                    ? <CustomSelect {...customAttributes} />
+                    ? <CustomSelect {...customAttributes} errors={errors} />
                     : type === 'date'
-                        ? <CustomDate {...customAttributes} />
+                        ? <CustomDate {...customAttributes} errors={errors} />
                         : null}
         </div>
     );
