@@ -1,0 +1,20 @@
+@use '../../styles/colors' as colors;
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: colors.$panels-background-color;
+  width: 100wh;
+  margin: 0.75rem 0.75rem 0 0.75rem;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+
+  .logo {
+    height: 2.25rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

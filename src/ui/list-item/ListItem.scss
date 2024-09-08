@@ -1,0 +1,26 @@
+@use '../../styles/colors' as colors;
+
+.list-item {
+  font-size: 0.875rem;
+  padding: 0.625rem;
+  min-width: 10.25rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.list-item_default {
+  background-color: colors.$white;
+  color: colors.$inactive-text;
+
+  &:hover {
+    background-color: colors.$contrasted-white;
+  }
+}
+
+.list-item_focused {
+  background-color: colors.$light-blue;
+  color: colors.$white;
+}

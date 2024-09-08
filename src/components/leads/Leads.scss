@@ -1,0 +1,24 @@
+.leads {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1;
+  padding: 0.75rem;
+  overflow: auto;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0 0.75rem;
+  }
+}

@@ -1,0 +1,25 @@
+@use '../../styles/colors' as colors;
+
+.custom-select {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid colors.$input-border;
+  appearance: none;
+  background-image: url("../../assets/arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 92%;
+  background-position-y: center;
+
+  &:invalid {
+    color: colors.$placeholder-color;
+
+    option {
+      color: black;
+    }
+  }
+
+  &.input-error {
+    border-color: red;
+  }
+}
+
