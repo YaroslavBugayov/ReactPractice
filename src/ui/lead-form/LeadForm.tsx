@@ -1,6 +1,6 @@
 import './LeadForm.scss';
 import {FC, JSX, MouseEvent} from "react";
-import {SubmitHandler, useForm} from "react-hook-form";
+import {RegisterOptions, SubmitHandler, useForm} from "react-hook-form";
 import {useCreateLeadMutation} from "../../features/api/leads-api.ts";
 import LeadCredentials from "../../models/lead-credentials.ts";
 import {calculateAge} from "../../utils/data-utils.ts";
@@ -14,6 +14,7 @@ interface Field {
     placeholder: string;
     type?: 'text' | 'select' | 'date';
     selectOptions?: object;
+    validateOptions?: RegisterOptions
 }
 
 interface FormData {
@@ -64,7 +65,13 @@ const fields: Field[] = [
     {
         label: "Номер телефону:",
         placeholder: "Введіть номер телефону",
-        name: "phone"
+        name: "phone",
+        validateOptions: {
+            pattern: {
+                value: /^\d{3}-\d{3}-\d{4}$/,
+                message: "Номер телефону не відповідає формату 999-999-9999"
+            }
+        }
     }
 ];
 
@@ -102,6 +109,7 @@ const LeadForm: FC<LeadFormProps> = ({ onClose }): JSX.Element => {
                         label={field.label}
                         type={field.type}
                         selectOptions={field.selectOptions}
+                        validateOptions={field.validateOptions}
                     />
                 ))}
             </div>
