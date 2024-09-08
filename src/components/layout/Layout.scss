@@ -1,5 +1,7 @@
 main {
   display: flex;
-  height: 87.5vh;
-  gap: 24px;
+  flex-grow: 1;
+  gap: 12px;
+  padding: 12px;
+  overflow-y: hidden;
 }
