@@ -15,18 +15,18 @@
 
   .modal-content {
     background-color: white;
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
     .header {
       display: flex;
       justify-content: space-between;
       background-color: colors.$header-modal-background;
       border: 1px solid colors.$header-modal-border;
-      border-radius: 12px;
-      padding: 12px;
+      border-radius: 0.75rem;
+      padding: 0.75rem;
 
       h2 {
-        font-size: 20px;
+        font-size: 1.25rem;
         line-height: 1.3;
         font-weight: 500;
       }
@@ -39,15 +39,15 @@
     .form-inputs {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 20px;
+      gap: 0.625rem;
+      padding: 1.25rem;
     }
 
     .footer {
       display: flex;
       justify-content: right;
-      gap: 12px;
-      padding: 0 20px 20px 20px;
+      gap: 0.75rem;
+      padding: 0 1.25rem 1.25rem 1.25rem;
     }
   }
 }

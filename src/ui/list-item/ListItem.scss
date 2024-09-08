@@ -1,10 +1,10 @@
 @use '../../styles/colors' as colors;
 
 .list-item {
-  font-size: 14px;
-  padding: 10px;
-  min-width: 168px;
-  border-radius: 4px;
+  font-size: 0.875rem;
+  padding: 0.625rem;
+  min-width: 10.25rem;
+  border-radius: 0.25rem;
 
   &:hover {
     cursor: pointer;
