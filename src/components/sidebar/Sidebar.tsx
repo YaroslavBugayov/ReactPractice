@@ -5,7 +5,6 @@ import AppRoutes from '../../common/enums/app-routes.ts';
 import { Link } from 'react-router-dom';
 
 const Sidebar: FC = (): JSX.Element => {
-
     return (
         <div className="sidebar">
             <Link to={AppRoutes.ROOT}>

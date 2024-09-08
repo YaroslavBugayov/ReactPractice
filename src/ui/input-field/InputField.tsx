@@ -10,14 +10,13 @@ interface InputFieldProps {
     type: 'text' | 'select' | 'date';
     name: string;
     placeholder: string;
-    description?: string;
-    error?: string;
+    errors?: object;
     register: UseFormRegister<{name: string}>;
     validateOptions: object;
     selectOptions?: OptionsType[]
 }
 
-const InputField: FC = ({label, description, errors, type="text", ...customAttributes}: InputFieldProps): JSX.Element => {
+const InputField: FC = ({label, errors, type="text", ...customAttributes}: InputFieldProps): JSX.Element => {
     return (
         <div className="input-field">
             <label>{label}</label>

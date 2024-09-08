@@ -5,7 +5,6 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Header from '../header/Header.tsx';
 
 const Layout: FC = (): JSX.Element => {
-
     return (
         <>
             <Header/>

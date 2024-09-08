@@ -1,20 +1,21 @@
 import './Leads.scss';
-import { FC, JSX, useEffect, useState, MouseEvent } from 'react';
+import { FC, JSX, useState, MouseEvent, KeyboardEvent } from 'react';
 import ButtonMain from '../../ui/button-main/ButtonMain.tsx';
 import Table from '../../ui/table/Table.tsx';
 import LeadModel from '../../models/lead-model.ts';
 import { useGetLeadsQuery } from '../../features/api/leads-api.ts';
-import Modal from '../modal/Modal.tsx';
+import Modal from '../../ui/modal/Modal.tsx';
+import LeadForm from "../../ui/lead-form/LeadForm.tsx";
 
 const Leads: FC = (): JSX.Element => {
-    const { data }: { data: LeadModel } = useGetLeadsQuery();
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { data }: { data: LeadModel[] } = useGetLeadsQuery();
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
 
-    const handleCloseModal = (e: MouseEvent<HTMLElement> | KeyboardEvent) => {
+    const handleCloseModal = (e?: MouseEvent<HTMLElement> | KeyboardEvent) => {
         if (e?.target === e?.currentTarget) {
             setIsModalOpen(false);
         }
@@ -22,7 +23,9 @@ const Leads: FC = (): JSX.Element => {
 
     return (
         <>
-            {isModalOpen && <Modal onClose={handleCloseModal} />}
+            {isModalOpen && <Modal title="Створення ліда" onClose={handleCloseModal}>
+                <LeadForm onClose={handleCloseModal} />
+            </Modal>}
             <div className="leads">
                 <div className="head">
                     <h2>Всі ліди</h2>

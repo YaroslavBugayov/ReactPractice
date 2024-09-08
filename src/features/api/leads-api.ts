@@ -3,10 +3,13 @@ import LeadModel from '../../models/lead-model.ts';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import LeadCredentials from '../../models/lead-credentials.ts';
 
+// const serverUrl: string = import.meta.url.VITE_SERVER_URL;
+const mockedServerUrl: string = 'https://66d058f0181d059277de33d5.mockapi.io/leads';
+
 export const leadsApi = createApi({
     reducerPath: 'leads',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://66d058f0181d059277de33d5.mockapi.io/leads'
+        baseUrl: mockedServerUrl
     }),
     tagTypes: ['Lead'],
     endpoints: (builder) => ({
