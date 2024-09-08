@@ -1,14 +1,14 @@
 import './CustomSelect.scss';
 import { FC, JSX } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import {FieldValues, RegisterOptions, UseFormRegister} from 'react-hook-form';
 
 export interface OptionsType { value: string; name: string; }
 
 interface CustomSelectProps {
     name: string;
     placeholder: string;
-    register: UseFormRegister<{name: string}>;
-    validateOptions: object;
+    register: UseFormRegister<FieldValues>;
+    validateOptions?: RegisterOptions;
     errors: object;
     selectOptions: OptionsType[];
 }
