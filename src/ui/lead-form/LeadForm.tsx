@@ -33,12 +33,26 @@ const fields: Field[] = [
     {
         label: "Прізвище:",
         placeholder: "Введіть прізвище",
-        name: "lastName"
+        name: "lastName",
+        validateOptions: {
+            maxLength: 20,
+            pattern: {
+                value: /^[A-Za-zА-Яа-яЇїІіЄєҐґ'`-]+$/,
+                message: "Прізвище не відповідає формату"
+            }
+        }
     },
     {
         label: "Ім'я:",
         placeholder: "Введіть ім'я",
-        name: "name"
+        name: "name",
+        validateOptions: {
+            maxLength: 20,
+            pattern: {
+                value: /^[A-Za-zА-Яа-яЇїІіЄєҐґ'`-]+$/,
+                message: "Ім'я не відповідає формату"
+            }
+        }
     },
     {
         label: "Дата народження:",
